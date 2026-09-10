@@ -1,16 +1,628 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibbos Peças e Serviços | A.P. Batista Peças e Serviços LTDA</title>
+  <!-- Font Awesome 6 (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f7fb;
+      font-family: 'Inter', sans-serif;
+      color: #1e2b3c;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    /* Header */
+    header {
+      background: #0f1a2c;
+      color: white;
+      border-bottom: 4px solid #f5b32b;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      background: #f5b32b;
+      color: #0f1a2c;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .logo-text .tagline {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #b0c4de;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-cnpj {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 40px;
+      padding: 0.45rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e0e9f5;
+      white-space: nowrap;
+    }
+
+    .badge-cnpj i {
+      color: #f5b32b;
+      margin-right: 0.4rem;
+    }
+
+    /* Main */
+    main {
+      flex: 1;
+    }
+
+    /* Hero / card principal */
+    .hero-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem 2.5rem;
+      margin: 2rem 0 2rem 0;
+      box-shadow: 0 18px 35px -12px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e9eef4;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-info h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #0f1a2c;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-info h2 span {
+      color: #d4930b;
+      background: #fff5e0;
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .hero-info p {
+      color: #4b5f73;
+      font-size: 1.1rem;
+      margin-bottom: 1.8rem;
+      max-width: 90%;
+    }
+
+    .activity-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #eef3f9;
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e2b3c;
+      border-left: 5px solid #f5b32b;
+    }
+
+    .activity-badge i {
+      margin-right: 0.7rem;
+      font-size: 1.3rem;
+      color: #d4930b;
+    }
+
+    .hero-stats {
+      background: #f9fcff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem;
+      border: 1px solid #dee7f0;
+      box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #d4930b;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .stat-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6e859c;
+    }
+
+    .stat-value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0f1a2c;
+    }
+
+    /* Grid de informações */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0 1rem 0;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem;
+      border: 1px solid #e9eef4;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: #fef7e9;
+      color: #d4930b;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #0f1a2c;
+      letter-spacing: -0.01em;
+    }
+
+    .info-card .detail {
+      font-size: 0.98rem;
+      color: #3e5468;
+      margin-bottom: 0.4rem;
+      word-break: break-word;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .detail i {
+      color: #d4930b;
+      width: 18px;
+      font-size: 0.9rem;
+      margin-right: 0.4rem;
+    }
+
+    .highlight-number {
+      font-family: 'Inter', monospace;
+      font-weight: 600;
+      background: #f1f5f9;
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #0b1a28;
+      display: inline-block;
+      word-break: break-all;
+    }
+
+    .tag-cnae {
+      background: #e6f0fc;
+      color: #1e5b9c;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      width: fit-content;
+    }
+
+    /* Divisor */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #dbe3ec;
+    }
+
+    .divider-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #8999ab;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f1a2c;
+      color: #b0c4de;
+      padding: 1.8rem 0;
+      margin-top: 3rem;
+      border-top: 4px solid #f5b32b;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-content .company-name {
+      font-weight: 600;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-content .cnpj-footer {
+      font-size: 0.85rem;
+      color: #93a9c2;
+    }
+
+    .footer-links i {
+      margin-right: 0.4rem;
+      color: #f5b32b;
+    }
+
+    /* Responsividade */
+    @media (max-width: 850px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.8rem;
+      }
+
+      .hero-info h2 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 1rem 1.5rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-text h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-info h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero-card {
+        padding: 1.5rem;
+      }
+
+      .stat-item {
+        gap: 0.8rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo-area {
+        flex-wrap: wrap;
+      }
+
+      .activity-badge {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+        width: 100%;
+      }
+    }
+
+    /* micro ajuste */
+    .break-word {
+      word-break: break-all;
+      white-space: normal;
+    }
+
+    .no-wrap {
+      white-space: nowrap;
+    }
+
+    .small-muted {
+      font-size: 0.85rem;
+      color: #6b7f94;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="fas fa-motorcycle"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Bibbos Peças e Serviços</h1>
+          <div class="tagline">A. P. Batista Peças e Serviços LTDA</div>
+        </div>
+      </div>
+      <div class="badge-cnpj">
+        <i class="fas fa-building"></i> CNPJ: 08.669.782/0001-68
+      </div>
+    </div>
+  </header>
 
-    <h1>Meu primeiro site!</h1>
-    <p>Site criado com GitHub e Netlify.</p>
+  <main>
+    <div class="container">
+      <!-- Card principal / Hero -->
+      <div class="hero-card">
+        <div class="hero-info">
+          <h2>Peças e serviços para sua moto</h2>
+          <p>Comércio varejista de peças e acessórios novos para motocicletas e motonetas. Tradição e qualidade desde 2007.</p>
+          <div class="activity-badge">
+            <i class="fas fa-store"></i> CNAE Principal: 45.41-2-06
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-text">
+              <span class="stat-label">Data de abertura</span>
+              <span class="stat-value">26/02/2007</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-text">
+              <span class="stat-label">Tempo de atividade</span>
+              <span class="stat-value">19 anos, 6 meses e 12 dias</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="stat-text">
+              <span class="stat-label">Inscrição Estadual (PR)</span>
+              <span class="stat-value">90397219-00</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <script src="script.js"></script>
+      <!-- Título da seção de dados -->
+      <div class="divider">
+        <span class="divider-text">Informações cadastrais</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Grid de informações -->
+      <div class="info-grid">
+        <!-- Card razão social -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Razão Social</h3>
+          <div class="detail">
+            <i class="fas fa-building"></i> A. P. Batista Peças e Serviços LTDA
+          </div>
+          <div class="detail">
+            <i class="fas fa-tag"></i> Nome fantasia: Bibbos Peças e Serviços
+          </div>
+        </div>
+
+        <!-- Card CNPJ -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+          <h3>CNPJ</h3>
+          <div class="detail">
+            <i class="fas fa-hashtag"></i> 08.669.782/0001-68
+          </div>
+          <div class="detail">
+            <i class="fas fa-barcode"></i> <span class="highlight-number">08669782000168</span>
+          </div>
+          <div class="detail small-muted" style="margin-top: 0.5rem;">
+            <i class="fas fa-check-circle" style="color: #2e7d32;"></i> Ativo
+          </div>
+        </div>
+
+        <!-- Card Inscrição Estadual -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Inscrição Estadual (PR)</h3>
+          <div class="detail">
+            <i class="fas fa-id-card"></i> <span class="highlight-number">90397219-00</span>
+          </div>
+          <div class="detail small-muted">
+            <i class="fas fa-map-pin"></i> Paraná
+          </div>
+        </div>
+
+        <!-- Card Atividade Principal -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-motorcycle"></i>
+          </div>
+          <h3>Atividade Principal</h3>
+          <div class="detail">
+            <i class="fas fa-code"></i> 45.41-2-06
+          </div>
+          <div class="detail">
+            Comércio a varejo de peças e acessórios novos para motocicletas e motonetas
+          </div>
+          <div class="tag-cnae">
+            <i class="fas fa-wrench"></i> CNAE Principal
+          </div>
+        </div>
+
+        <!-- Card Data de Abertura (detalhado) -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3>Data de Abertura</h3>
+          <div class="detail">
+            <i class="fas fa-calendar-day"></i> <strong>26/02/2007</strong>
+          </div>
+          <div class="detail">
+            <i class="fas fa-hourglass-half"></i> 19 anos, 6 meses e 12 dias
+          </div>
+          <div class="detail small-muted">
+            <i class="fas fa-info-circle"></i> Empresa com quase duas décadas de mercado
+          </div>
+        </div>
+
+        <!-- Card Nome Fantasia (extra) -->
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-store-alt"></i>
+          </div>
+          <h3>Nome Fantasia</h3>
+          <div class="detail">
+            <i class="fas fa-signature"></i> <strong>Bibbos Peças e Serviços</strong>
+          </div>
+          <div class="detail small-muted">
+            <i class="fas fa-thumbs-up"></i> Marca consolidada no segmento
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha extra com destaque para os serviços (opcional) -->
+      <div class="divider" style="margin-top: 2rem;">
+        <span class="divider-text">Especialidades</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Pequeno bloco de serviços, baseado no CNAE -->
+      <div style="background: white; border-radius: 24px; padding: 2rem; border: 1px solid #e9eef4; margin-bottom: 1rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <i class="fas fa-check-circle" style="color: #d4930b; font-size: 2rem;"></i>
+            <span style="font-weight: 600; font-size: 1.1rem;">Peças novas para motocicletas e motonetas</span>
+          </div>
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <i class="fas fa-check-circle" style="color: #d4930b; font-size: 2rem;"></i>
+            <span style="font-weight: 600; font-size: 1.1rem;">Acessórios e serviços especializados</span>
+          </div>
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <i class="fas fa-check-circle" style="color: #d4930b; font-size: 2rem;"></i>
+            <span style="font-weight: 600; font-size: 1.1rem;">Atendimento de qualidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div class="company-name">A.P.BATISTA PEÇAS E SERVIÇOS LTDA</div>
+        <div class="cnpj-footer">CNPJ: 08.669.782/0001-68 • Inscrição Estadual PR: 90397219-00</div>
+        <div class="cnpj-footer" style="margin-top: 0.3rem;">© 2025 Bibbos Peças e Serviços — Todos os direitos reservados.</div>
+      </div>
+      <div class="footer-links">
+        <i class="fas fa-motorcycle"></i> Desde 2007
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
